@@ -8,7 +8,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -21,6 +20,10 @@ app.use('/api/csv', csvRoutes);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });
+});
+
+app.get('/', (req, res) => {
+  res.json({ message: 'Backend is running' });
 });
 
 app.use((err, req, res, next) => {
