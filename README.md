@@ -1,35 +1,36 @@
-\# GrowEasy CSV Importer
+# 📊 GrowEasy CSV Importer
 
+An intelligent AI-powered CSV import tool that maps and extracts CRM lead data from any CSV format.
 
+---
 
-AI-powered CSV import tool that intelligently extracts CRM lead information from any CSV format.
+## 🌟 Features
 
+| Feature | Description |
+|---------|-------------|
+| 📁 **CSV Upload** | Drag & drop or browse to upload CSV files |
+| 📋 **Data Preview** | Responsive table with sticky headers and scroll support |
+| 🤖 **AI Extraction** | OpenAI-powered field mapping for CRM data |
+| 📦 **Batch Processing** | Handles large CSV files efficiently |
+| 📈 **Results Dashboard** | Track imported vs skipped records |
 
+---
 
-\## Features
+## 🛠️ Tech Stack
 
-\- 📁 Drag \& Drop CSV upload
+- **Frontend:** Next.js 14, React 18, Axios
+- **Backend:** Node.js, Express, Multer
+- **AI:** OpenAI GPT-3.5
+- **Hosting:** Vercel, Render
 
-\- 📊 Preview with responsive table
+---
 
-\- 🤖 AI-powered field mapping (OpenAI GPT-3.5)
+## 🚀 Quick Start
 
-\- 📋 Batch processing
-
-\- 📈 Import statistics
-
-\- 🌙 Dark mode support
-
-
-
-\## Tech Stack
-
-\- \*\*Frontend:\*\* Next.js
-
-\- \*\*Backend:\*\* Node.js + Express
-
-\- \*\*AI:\*\* OpenAI GPT-3.5
-
+### 1. Clone Repository
+```bash
+git clone https://github.com/srs333484-alt/groweasy-csv-importer.git
+cd groweasy-csv-importer
 \- \*\*Hosting:\*\* Vercel (Frontend), Render (Backend)
 
 
