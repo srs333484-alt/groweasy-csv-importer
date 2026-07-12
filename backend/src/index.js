@@ -23,9 +23,9 @@ app.get('/', (req, res) => {
 
 app.use((err, req, res, next) => {
   console.error('Error:', err.stack);
-  res.status(500).json({ 
-    success: false, 
-    error: err.message || 'Something went wrong!' 
+  res.status(500).json({
+    success: false,
+    error: err.message || 'Something went wrong!'
   });
 });
 
