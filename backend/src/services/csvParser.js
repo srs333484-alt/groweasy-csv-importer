@@ -9,7 +9,6 @@ exports.parseBuffer = (buffer) => {
     readable
       .pipe(csv())
       .on('data', (data) => {
-        // Clean up keys (remove BOM, trim spaces)
         const cleanData = {};
         Object.keys(data).forEach(key => {
           const cleanKey = key.replace(/^\uFEFF/, '').trim();
