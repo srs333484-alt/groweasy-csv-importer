@@ -4,7 +4,6 @@ export default function LoadingIndicator() {
       <div style={styles.spinner}></div>
       <p style={styles.text}>🤖 Processing CSV with AI...</p>
       <p style={styles.subtext}>This may take a few moments</p>
-      
       <style>{`
         @keyframes spin {
           0% { transform: rotate(0deg); }
@@ -35,14 +34,6 @@ const styles = {
     marginTop: '20px',
     fontSize: '1.1rem',
     fontWeight: '500',
-    color: '#333',
-  },
-  subtext: {
-    marginTop: '5px',
-    fontSize: '0.9rem',
-    color: '#888',
-  },
-};    fontWeight: '500',
     color: '#333',
   },
   subtext: {
