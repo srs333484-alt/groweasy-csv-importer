@@ -42,22 +42,4 @@ function mapSource(source) {
   if (sourceLower.includes('varah')) return 'varah_swamy';
   if (sourceLower.includes('sarjapur')) return 'sarjapur_plots';
   return '';
-}  if (!status) return 'GOOD_LEAD_FOLLOW_UP';
-  const statusLower = status.toString().toLowerCase();
-  if (statusLower.includes('good') || statusLower.includes('follow')) return 'GOOD_LEAD_FOLLOW_UP';
-  if (statusLower.includes('did not') || statusLower.includes('not connect')) return 'DID_NOT_CONNECT';
-  if (statusLower.includes('bad') || statusLower.includes('not interest')) return 'BAD_LEAD';
-  if (statusLower.includes('sale') || statusLower.includes('done') || statusLower.includes('closed')) return 'SALE_DONE';
-  return 'GOOD_LEAD_FOLLOW_UP';
-}
-
-function mapSource(source) {
-  if (!source) return '';
-  const sourceLower = source.toString().toLowerCase();
-  if (sourceLower.includes('leads_on_demand') || sourceLower.includes('demand')) return 'leads_on_demand';
-  if (sourceLower.includes('meridian')) return 'meridian_tower';
-  if (sourceLower.includes('eden')) return 'eden_park';
-  if (sourceLower.includes('varah')) return 'varah_swamy';
-  if (sourceLower.includes('sarjapur')) return 'sarjapur_plots';
-  return '';
 }
