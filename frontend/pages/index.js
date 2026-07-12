@@ -1,10 +1,10 @@
-import { useState } from 'react';
+        import { useState } from 'react';
 import CSVUploader from '../components/CSVUploader';
 import CSVPreview from '../components/CSVPreview';
 import ResultTable from '../components/ResultTable';
 import LoadingIndicator from '../components/LoadingIndicator';
 
-const API_URL = 'https://gtwoeasy-csv-importers-1h3a.onrender.com';
+const API_URL = 'https://groweasy-csv-importer-1h3a.onrender.com';
 
 export default function Home() {
   const [step, setStep] = useState(1);
