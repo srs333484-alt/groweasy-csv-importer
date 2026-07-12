@@ -5,7 +5,7 @@ const csvController = require('../controllers/csvController');
 const router = express.Router();
 
 const storage = multer.memoryStorage();
-const upload = multer({ 
+const upload = multer({
   storage: storage,
   limits: { fileSize: 50 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
@@ -20,21 +20,7 @@ const upload = multer({
 router.post('/upload', upload.single('csvFile'), csvController.uploadCSV);
 router.post('/process', csvController.processCSV);
 
-module.exports = router;  if (!source) return '';
-  const sourceLower = source.toString().toLowerCase();
-  if (sourceLower.includes('leads_on_demand') || sourceLower.includes('demand')) return 'leads_on_demand';
-  if (sourceLower.includes('meridian')) return 'meridian_tower';
-  if (sourceLower.includes('eden')) return 'eden_park';
-  if (sourceLower.includes('varah')) return 'varah_swamy';
-  if (sourceLower.includes('sarjapur')) return 'sarjapur_plots';
-  return '';
-}  }
-};
-
-exports.processCSV = async (req, res) => {
-  try {
-    const { records } = req.body;
-    
+module.exports = router;    
     if (!records || records.length === 0) {
       return res.status(400).json({ 
         success: false, 
