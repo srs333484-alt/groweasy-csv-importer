@@ -1,40 +1,26 @@
-exports.extractCRMData = async (records) => {
-  const results = records.map(record => {
-    const crmRecord = {
-      created_at: new Date().toISOString(),
-      name: record.name || record.Name || record.full_name || record.FullName || '',
-      email: record.email || record.Email || record.email_address || '',
-      country_code: record.country_code || record.countryCode || record.CountryCode || '',
-      mobile_without_country_code: record.mobile || record.Mobile || record.phone || record.Phone || record.mobile_number || '',
-      company: record.company || record.Company || record.company_name || '',
-      city: record.city || record.City || '',
-      state: record.state || record.State || '',
-      country: record.country || record.Country || '',
-      lead_owner: record.lead_owner || record.LeadOwner || '',
-      crm_status: mapStatus(record.crm_status || record.Status || record.lead_status || ''),
-      crm_note: record.crm_note || record.Notes || record.note || record.remarks || '',
-      data_source: mapSource(record.data_source || record.Source || record.source || ''),
-      possession_time: record.possession_time || record.PossessionTime || '',
-      description: record.description || record.Description || ''
-    };
-    return crmRecord;
-  });
+const express = require('express');
+const multer = require('multer');
+const csvController = require('../controllers/csvController');
 
-  return results;
-};
+const router = express.Router();
 
-function mapStatus(status) {
-  if (!status) return 'GOOD_LEAD_FOLLOW_UP';
-  const statusLower = status.toString().toLowerCase();
-  if (statusLower.includes('good') || statusLower.includes('follow')) return 'GOOD_LEAD_FOLLOW_UP';
-  if (statusLower.includes('did not') || statusLower.includes('not connect')) return 'DID_NOT_CONNECT';
-  if (statusLower.includes('bad') || statusLower.includes('not interest')) return 'BAD_LEAD';
-  if (statusLower.includes('sale') || statusLower.includes('done') || statusLower.includes('closed')) return 'SALE_DONE';
-  return 'GOOD_LEAD_FOLLOW_UP';
-}
+const storage = multer.memoryStorage();
+const upload = multer({ 
+  storage: storage,
+  limits: { fileSize: 50 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype === 'text/csv' || file.originalname.endsWith('.csv')) {
+      cb(null, true);
+    } else {
+      cb(new Error('Only CSV files are allowed'), false);
+    }
+  }
+});
 
-function mapSource(source) {
-  if (!source) return '';
+router.post('/upload', upload.single('csvFile'), csvController.uploadCSV);
+router.post('/process', csvController.processCSV);
+
+module.exports = router;  if (!source) return '';
   const sourceLower = source.toString().toLowerCase();
   if (sourceLower.includes('leads_on_demand') || sourceLower.includes('demand')) return 'leads_on_demand';
   if (sourceLower.includes('meridian')) return 'meridian_tower';
