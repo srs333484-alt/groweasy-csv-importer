@@ -42,4 +42,12 @@ const styles = {
     fontSize: '0.9rem',
     color: '#888',
   },
+};    fontWeight: '500',
+    color: '#333',
+  },
+  subtext: {
+    marginTop: '5px',
+    fontSize: '0.9rem',
+    color: '#888',
+  },
 };
