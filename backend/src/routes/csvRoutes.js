@@ -4,11 +4,10 @@ const csvController = require('../controllers/csvController');
 
 const router = express.Router();
 
-// Configure multer for memory storage (no file writing)
 const storage = multer.memoryStorage();
 const upload = multer({ 
   storage: storage,
-  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB limit
+  limits: { fileSize: 50 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     if (file.mimetype === 'text/csv' || file.originalname.endsWith('.csv')) {
       cb(null, true);
