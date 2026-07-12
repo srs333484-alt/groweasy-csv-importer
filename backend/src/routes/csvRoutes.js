@@ -20,21 +20,7 @@ const upload = multer({
 router.post('/upload', upload.single('csvFile'), csvController.uploadCSV);
 router.post('/process', csvController.processCSV);
 
-module.exports = router;    
-    if (!records || records.length === 0) {
-      return res.status(400).json({ 
-        success: false, 
-        error: 'No records to process' 
-      });
-    }
-
-    const batchSize = 10;
-    const results = [];
-    let skipped = 0;
-
-    for (let i = 0; i < records.length; i += batchSize) {
-      const batch = records.slice(i, i + batchSize);
-      try {
+module.exports = router;      try {
         const processed = await aiService.extractCRMData(batch);
         if (processed && processed.length > 0) {
           results.push(...processed);
