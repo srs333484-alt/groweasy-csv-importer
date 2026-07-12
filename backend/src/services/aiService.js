@@ -42,4 +42,12 @@ function mapSource(source) {
   if (sourceLower.includes('varah')) return 'varah_swamy';
   if (sourceLower.includes('sarjapur')) return 'sarjapur_plots';
   return '';
+}  if (!source) return '';
+  const sourceLower = source.toString().toLowerCase();
+  if (sourceLower.includes('leads_on_demand') || sourceLower.includes('demand')) return 'leads_on_demand';
+  if (sourceLower.includes('meridian')) return 'meridian_tower';
+  if (sourceLower.includes('eden')) return 'eden_park';
+  if (sourceLower.includes('varah')) return 'varah_swamy';
+  if (sourceLower.includes('sarjapur')) return 'sarjapur_plots';
+  return '';
 }
