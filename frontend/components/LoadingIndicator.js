@@ -1,4 +1,4 @@
- export default function LoadingIndicator() {
+export default function LoadingIndicator() {
   return (
     <div style={styles.container}>
       <div style={styles.spinner}></div>
@@ -20,7 +20,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     padding: '40px',
-    marginTop: '20px'
+    marginTop: '20px',
   },
   spinner: {
     border: '5px solid #f3f3f3',
@@ -28,17 +28,17 @@ const styles = {
     borderRadius: '50%',
     width: '50px',
     height: '50px',
-    animation: 'spin 1s linear infinite'
+    animation: 'spin 1s linear infinite',
   },
   text: {
     marginTop: '20px',
     fontSize: '1.1rem',
     fontWeight: '500',
-    color: '#333'
+    color: '#333',
   },
   subtext: {
     marginTop: '5px',
     fontSize: '0.9rem',
-    color: '#888'
-  }
-};   
+    color: '#888',
+  },
+};
